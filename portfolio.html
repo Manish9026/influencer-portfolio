@@ -18,7 +18,8 @@
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio (height ÷ width × 100) */
   overflow: hidden;
-  border-radius: 12px; /* optional rounded corners */
+  /* border-radius: 12px 12px 0px 0px; */
+  /* border-radius: 12px ; optional rounded corners */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* optional shadow */
 }
 
@@ -29,6 +30,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /* Fill the container nicely */
+}
+
+@media (max-width: 992px) {
+    .video-container{
+
+        border-radius: 12px ; /* optional rounded corners */
+    }
+
 }
 </style>
 <body>
@@ -79,10 +88,12 @@
                 <div class="col-12 text-center">
                     <div class="portfolio-filters">
                         <button class="filter-btn active" data-filter="all">All Services</button>
-                        <button class="filter-btn" data-filter="short-video">Short Video</button>
-                        <button class="filter-btn" data-filter="long-video">Long Video</button>
-                        <button class="filter-btn" data-filter="graphics">Graphics</button>
-                        <button class="filter-btn" data-filter="script">Scripting</button>
+                        <button class="filter-btn" data-filter="short_video">Short Video</button>
+                        <button class="filter-btn" data-filter="long_video">Long Video</button>
+                        <button class="filter-btn" data-filter="graphics_video">Graphics</button>
+                        <button class="filter-btn" data-filter="script_video">Scripting</button>
+                        <button class="filter-btn" ></button>
+
                     </div>
                 </div>
             </div>

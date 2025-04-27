@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initMobileMenu();
   
   // Initialize portfolio filtering
-  initPortfolioFilters();
+  // initPortfolioFilters();
 });
 
 /**
@@ -105,70 +105,7 @@ function initTestimonialsSlider() {
   }
 }
 
-/**
- * Portfolio Filtering functionality
- */
-function initPortfolioFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
-  
-  if (!filterBtns.length || !portfolioItems.length) return;
-  
-  // Show all items initially
-  portfolioItems.forEach(item => {
-    item.style.display = 'block';
-  });
-  
-  // Handle filter button clicks
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterBtns.forEach(btn => btn.classList.remove('active'));
-      
-      // Add active class to clicked button
-      btn.classList.add('active');
-      
-      // Get filter value
-      const filterValue = btn.getAttribute('data-filter');
-      
-      // Filter portfolio items
-      portfolioItems.forEach(item => {
-        if (filterValue === 'all' || item.classList.contains(filterValue)) {
-          item.style.display = 'block';
-          // Add a small delay for animation
-          setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-          }, 50);
-        } else {
-          item.style.opacity = '0';
-          item.style.transform = 'translateY(20px)';
-          // Hide after fade out animation completes
-          setTimeout(() => {
-            item.style.display = 'none';
-          }, 300);
-        }
-      });
-    });
-  });
-  
-  // Check for hash in URL for direct filtering
-  if (window.location.hash) {
-    const hash = window.location.hash.substring(1); // Remove the # character
-    const targetBtn = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
-    if (targetBtn) {
-      targetBtn.click();
-      
-      // Scroll to the portfolio section
-      const portfolioSection = document.querySelector('.portfolio-section');
-      if (portfolioSection) {
-        setTimeout(() => {
-          portfolioSection.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }
-}
+
 
 /**
  * Navbar scroll behavior
