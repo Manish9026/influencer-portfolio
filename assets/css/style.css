@@ -1060,9 +1060,10 @@ Portfolio Page Styles
 .portfolio-info {
   padding: 1.5rem;
   display: flex; 
-  flex:1;
+  /* flex:1; */
   justify-content: space-between; 
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .portfolio-info h4 {
