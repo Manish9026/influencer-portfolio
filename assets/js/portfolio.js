@@ -147,9 +147,9 @@ const newCardData = [{
 ]
 function onPopup(e) {
 
-  let {contentId,containerId}= e.target.closest('#popup').dataset;
+  let { contentId, containerId } = e.target.closest('#popup').dataset;
   // console.log(containerId,contentId,);
-    
+
   document.getElementById('prd-title').innerText = newCardData[containerId].content[contentId].title;
   document.getElementById('prd-category').innerText = newCardData[containerId].content[contentId].category;
   document.getElementById('prd-completed').innerText = newCardData[containerId].content[contentId].completedAt?.toLocaleString('default', { month: 'long' }) + " " + newCardData[containerId].content[contentId].completedAt?.getFullYear();
@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
     video.load();
   });
 
+  // document.getElementById('fi').addEventListener("click")
 })
 
 /**
@@ -183,9 +184,9 @@ function initPortfolioFilters() {
   let initSelectItem = undefined;
   // const cardContainer = document.getElementById("cardList");
 
-  if (!filterBtns.length ) return;
+  if (!filterBtns.length) return;
 
-  
+
   filterBtns.forEach(item => {
     if (item.classList.contains("active")) {
 
@@ -216,7 +217,7 @@ function initPortfolioFilters() {
       btn.classList.add('active');
       updateTabCard(filterValue)
 
-  
+
     });
   });
 
@@ -240,9 +241,15 @@ function initPortfolioFilters() {
   }
 }
 
-const updateTabCard =  (selected = "all") => {
+const updateTabCard = (selected = "all") => {
   const cardContainer = document.getElementById("cardList");
+  window.scrollTo({
+    top: 200,
+    behavior: 'smooth'
+    ,
 
+    // makes it smooth scrolling
+  });
   cardContainer.innerHTML = "";
   if (selected === 'all') {
     newCardData.forEach((card, index) => {
@@ -269,7 +276,7 @@ const updateTabCard =  (selected = "all") => {
                           </div>
                           <div class="portfolio-info">
                               <h4>${card?.title}</h4>
-                          
+                           <button  id="exploreBtn" data-filter="${card?.category}">Explore more</button>
                           </div>
                       </div>
       `;
@@ -283,12 +290,46 @@ const updateTabCard =  (selected = "all") => {
       }, 30)
       cardContainer.appendChild(cardDiv);
 
-      const links = document.querySelectorAll('#popup');
+      // const links = document.querySelectorAll('#popup');
 
-      links.forEach(link => {
-        link.addEventListener('click', onPopup);
-      });
-    });
+
+      // links.forEach(link => {
+      //   link.addEventListener('click', onPopup);
+      // });
+
+    }
+
+    );
+
+    const exploreBtn = document.querySelectorAll("#exploreBtn");
+
+    exploreBtn.forEach(btn => {
+
+      btn.addEventListener('click', (e) => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        let selectValue = e?.target?.dataset?.filter
+        // console.log(e.target?.dataset?.filter);
+        if (!selectValue) return
+        filterBtns.forEach(btn => {
+          // console.log(btn.getAttribute('data-filter')===selectValue);
+
+          if (btn.getAttribute('data-filter') === selectValue) {
+            btn.classList.add('active')
+          }
+          else {
+
+            btn.classList.remove('active')
+          }
+
+
+
+        });
+        // console.log(filterBtns);
+
+        updateTabCard(selectValue)
+
+      })
+    })
   }
   else {
     newCardData.forEach((card, index) => {
