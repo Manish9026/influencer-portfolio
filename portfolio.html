@@ -39,6 +39,26 @@
     }
 
 }
+.btn-close{
+    background-image: none;
+    color: rgba(26, 160, 160, 0.91);
+    opacity: 1;
+    font-size: large;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ transition: all ease 2s;
+ border: 1px solid gray;
+
+}
+.btn-close:hover{
+
+
+background: #27589d;
+color: aliceblue;
+
+}
 </style>
 <body>
     <!-- Header/Navbar -->
@@ -143,7 +163,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="title">Corporate Brand Video</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">

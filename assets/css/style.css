@@ -742,23 +742,7 @@ Contact Page Styles
   gap: 1rem;
 }
 
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--primary-light);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
 
-.social-icon:hover {
-  background: var(--gradient);
-  color: white;
-  transform: translateY(-3px);
-}
 
 .map-section {
   position: relative;
@@ -1412,6 +1396,7 @@ About Page Styles
   .about-image::after {
     display: none;
   }
+
 }
 
 /* 
@@ -1584,4 +1569,83 @@ Hero Sections - Common Styles
 #exploreBtn:hover{
   background-color: #7918d996;
   transform: translatey(-5px);
+}
+
+/* footer-social */
+
+.footer-social{
+  display: inline-flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap:4px;
+  padding: 5px;
+  /* border: 1px solid red; */
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  
+  .social-icon:hover {
+    background: var(--gradient);
+    color: white;
+    transform: translateY(-3px);
+  }
+}
+
+/* media query for mobile && tab && laptop */
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .container{
+    /* min-width:350px; */
+    flex:1;
+  }
+  .hero-content {
+    gap: 20px;
+    padding: 2rem 1rem;
+    flex:1;
+    min-width: 80vw;
+    .hero-title{
+      font-size: 2rem;
+    }
+  }
+  /* home page */
+
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+ .hero-content{
+  padding: 4rem;
+ }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    background-color: lightyellow;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    background-color: lightgray;
+  }
 }
