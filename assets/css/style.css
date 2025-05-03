@@ -1654,3 +1654,11 @@ Hero Sections - Common Styles
     background-color: lightgray;
   }
 }
+
+/* comman style devices (large desktops, 1200px and up) */
+
+@media (max-width: 1900px) and (min-width:550px) {
+ .hero-content{
+  padding: 4rem;
+ }
+}
